@@ -1,0 +1,26 @@
+---
+__available_beats:
+  - auditbeat
+  - filebeat
+  - functionbeat
+  - heartbeat
+  - journalbeat
+  - metricbeat
+  - packetbeat
+
+__auditbeat_enabled: "{{ auditbeat_service_enabled or auditbeat_service_state != 'stopped' }}"
+__filebeat_enabled: "{{ filebeat_service_enabled or filebeat_service_state != 'stopped' }}"
+__functionbeat_enabled: "{{ functionbeat_service_enabled or functionbeat_service_state != 'stopped' }}"
+__heartbeat_enabled: "{{ heartbeat_service_enabled or heartbeat_service_state != 'stopped' }}"
+__journalbeat_enabled: "{{ journalbeat_service_enabled or journalbeat_service_state != 'stopped' }}"
+__metricbeat_enabled: "{{ metricbeat_service_enabled or metricbeat_service_state != 'stopped' }}"
+__packetbeat_enabled: "{{ packetbeat_service_enabled or packetbeat_service_state != 'stopped' }}"
+
+__beats_package_name:
+  auditbeat: auditbeat
+  filebeat: filebeat
+  functionbeat: functionbeat
+  heartbeat: heartbeat-elastic
+  journalbeat: journalbeat
+  metricbeat: metricbeat
+  packetbeat: packetbeat

@@ -1,0 +1,18 @@
+---
+- name: include Beats defaults
+  ansible.builtin.include_vars: "{{ item }}.yml"
+  loop: "{{ __available_beats }}"
+
+- name: configure Beats
+  ansible.builtin.template:
+    src: "etc/beat/beat.yml.j2"
+    dest: "/etc/{{ item }}/{{ item }}.yml"
+    owner: root
+    group: root
+    mode: 0644
+  vars:
+    name: "{{ item }}"
+    config: "{{ lookup('vars', '__' ~ item ~ '_config_defaults') | combine(lookup('vars', item ~ '_config')) }}"
+  notify: "restart {{ item }}"
+  when: "lookup('vars', '__' ~ item ~ '_enabled')"
+  loop: "{{ __available_beats }}"

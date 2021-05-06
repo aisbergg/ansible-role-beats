@@ -1,0 +1,8 @@
+{{ ansible_managed | comment }}
+
+# This file is the {{ name | title }} configuration.
+#
+# You can find the full configuration reference here:
+# https://github.com/elastic/beats/blob/master/{{ name }}/{{ name }}.reference.yml
+
+{{ config | to_nice_yaml(indent=2) }}

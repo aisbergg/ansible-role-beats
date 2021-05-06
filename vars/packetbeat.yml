@@ -1,0 +1,13 @@
+---
+__packetbeat_config_defaults:
+  packetbeat.interfaces.device: any
+  packetbeat.interfaces.internal_networks:
+    - private
+  packetbeat.flows:
+    timeout: 30s
+    period: 10s
+  packetbeat.protocols: []
+  packetbeat.procs.enabled: false
+  packetbeat.ignore_outgoing: false
+
+  logging.to_files: false

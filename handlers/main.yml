@@ -1,0 +1,42 @@
+---
+- name: restart auditbeat
+  ansible.builtin.service:
+    name: auditbeat
+    state: restarted
+  when: __auditbeat_enabled
+
+- name: restart filebeat
+  ansible.builtin.service:
+    name: filebeat
+    state: restarted
+  when: __filebeat_enabled
+
+- name: restart functionbeat
+  ansible.builtin.service:
+    name: functionbeat
+    state: restarted
+  when: __functionbeat_enabled
+
+- name: restart heartbeat
+  ansible.builtin.service:
+    name: heartbeat-elastic
+    state: restarted
+  when: __heartbeat_enabled
+
+- name: restart journalbeat
+  ansible.builtin.service:
+    name: journalbeat
+    state: restarted
+  when: __journalbeat_enabled
+
+- name: restart metricbeat
+  ansible.builtin.service:
+    name: metricbeat
+    state: restarted
+  when: __metricbeat_enabled
+
+- name: restart packetbeat
+  ansible.builtin.service:
+    name: packetbeat
+    state: restarted
+  when: __packetbeat_enabled

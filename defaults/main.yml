@@ -1,0 +1,75 @@
+---
+# ------------------------------------------------------------------------------
+# Installation
+# ------------------------------------------------------------------------------
+
+# Elastic RPM repository URL to be used for installation
+beats_centos_repo_url: "https://artifacts.elastic.co/packages/7.x/yum"
+
+
+
+# ------------------------------------------------------------------------------
+# Services
+# ------------------------------------------------------------------------------
+
+# install and manage Auditbeat service
+auditbeat_service_enabled: false
+auditbeat_service_state: stopped
+
+# install and manage Filebeat service
+filebeat_service_enabled: false
+filebeat_service_state: stopped
+
+# install and manage Functionbeat service
+functionbeat_service_enabled: false
+functionbeat_service_state: stopped
+
+# install and manage Heartbeat service
+heartbeat_service_enabled: false
+heartbeat_service_state: stopped
+
+# install and manage Journalbeat service
+journalbeat_service_enabled: false
+journalbeat_service_state: stopped
+
+# install and manage Metricbeat service
+metricbeat_service_enabled: false
+metricbeat_service_state: stopped
+
+# install and manage Packetbeat service
+packetbeat_service_enabled: false
+packetbeat_service_state: stopped
+
+
+
+# ------------------------------------------------------------------------------
+# Configurations
+# ------------------------------------------------------------------------------
+
+# Auditbeat configuration as found in the reference:
+# https://github.com/elastic/beats/blob/master/auditbeat/auditbeat.reference.yml
+auditbeat_config: {}
+
+# Filebeat configuration as found in the reference:
+# https://github.com/elastic/beats/blob/master/filebeat/filebeat.reference.yml
+filebeat_config: {}
+
+# Functionbeat configuration as found in the reference:
+# https://github.com/elastic/beats/blob/master/functionbeat/functionbeat.reference.yml
+functionbeat_config: {}
+
+# Heartbeat configuration as found in the reference:
+# https://github.com/elastic/beats/blob/master/heartbeat/heartbeat.reference.yml
+heartbeat_config: {}
+
+# Journalbeat configuration as found in the reference:
+# https://github.com/elastic/beats/blob/master/journalbeat/journalbeat.reference.yml
+journalbeat_config: {}
+
+# Metricbeat configuration as found in the reference:
+# https://github.com/elastic/beats/blob/master/metricbeat/metricbeat.reference.yml
+metricbeat_config: {}
+
+# Packetbeat configuration as found in the reference:
+# https://github.com/elastic/beats/blob/master/packetbeat/packetbeat.reference.yml
+packetbeat_config: {}

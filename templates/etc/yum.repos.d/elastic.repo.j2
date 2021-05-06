@@ -1,0 +1,10 @@
+{{ ansible_managed | comment }}
+
+[elastic-7.x]
+name=Elastic repository for 7.x packages
+baseurl={{ beats_centos_repo_url }}
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/GPG-KEY-elasticsearch
+enabled=1
+autorefresh=1
+type=rpm-md

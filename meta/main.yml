@@ -1,0 +1,24 @@
+---
+dependencies: []
+
+galaxy_info:
+  author: André Lehmann
+  namespace: aisbergg
+  role_name: beats
+  description: Install and configure Beats from the official Elastic Beats family.
+  company: none
+  issue_tracker_url: https://github.com/aisbergg/ansible-role-beats/issues
+  license: MIT
+  min_ansible_version: 2.10
+
+  platforms:
+    - name: EL
+      versions:
+        - 7
+        - 8
+    - name: Fedora
+      versions:
+        - all
+
+  galaxy_tags:
+    - beats

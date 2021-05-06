@@ -1,0 +1,34 @@
+---
+- name: add ElasticSearch RPM repository
+  ansible.builtin.template:
+    src: etc/yum.repos.d/elastic.repo.j2
+    dest: /etc/yum.repos.d/elastic.repo
+    owner: root
+    group: root
+    mode: 0644
+
+- name: copy ElasticSearch repo GPG key
+  ansible.builtin.copy:
+    src: GPG-KEY-elasticsearch
+    dest: /etc/pki/rpm-gpg/GPG-KEY-elasticsearch
+    owner: root
+    group: root
+    mode: 0644
+
+- name: import ElasticSearch repo GPG key
+  ansible.builtin.rpm_key:
+    key: /etc/pki/rpm-gpg/GPG-KEY-elasticsearch
+    fingerprint: 4609 5ACC 8548 582C 1A26 99A9 D27D 666C D88E 42B4
+
+- name: install Beats on CentOS
+  ansible.builtin.dnf:
+    name: "{{ __beats_package_name[item] }}"
+    state: "{{ install | ternary('present', 'absent') }}"
+  loop: "{{ __available_beats }}"
+  vars:
+    install: "{{
+      (lookup('vars', item ~ '_service_enabled') | bool) or
+      (lookup('vars', item ~ '_service_state') != 'stopped')
+    }}"
+  loop_control:
+    label: "{{ install | ternary('install', 'uninstall') }} {{ item }}"

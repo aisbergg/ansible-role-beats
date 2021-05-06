@@ -1,0 +1,6 @@
+---
+__journalbeat_config_defaults:
+  journalbeat.inputs:
+    - paths: []
+      seek: cursor
+  logging.to_files: false
