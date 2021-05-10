@@ -8,18 +8,18 @@ __metricbeat_config_defaults:
   metricbeat.modules:
     - module: system
       metricsets:
-        - cpu             # CPU usage
-        - load            # CPU load averages
-        - memory          # Memory usage
-        - network         # Network IO
-        - process         # Per process metrics
-        - process_summary # Process summary
-        - uptime          # System Uptime
-        - socket_summary  # Socket summary
+        - cpu              # CPU usage
+        - load             # CPU load averages
+        - memory           # Memory usage
+        - network          # Network IO
+        - process          # Per process metrics
+        - process_summary  # Process summary
+        - uptime           # System Uptime
+        - socket_summary   # Socket summary
       enabled: true
       period: 10s
       processes: ['.*']
-      cpu.metrics:  ["percentages","normalized_percentages"]  # The other available option is ticks.
+      cpu.metrics:  ["percentages", "normalized_percentages"]  # The other available option is ticks.
       core.metrics: ["percentages"]  # The other available option is ticks.
 
   logging.to_files: false
