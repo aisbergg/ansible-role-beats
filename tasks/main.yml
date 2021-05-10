@@ -5,14 +5,15 @@
   loop_control:
     loop_var: task_file
   with_first_found:
-    - "installation_{{ ansible_distribution | lower }}.yml"
-    - "installation_{{ ansible_os_family | lower }}.yml"
+    - "install_{{ ansible_distribution | lower }}_{{ ansible_distribution_major_version }}.yml"
+    - "install_{{ ansible_distribution | lower }}.yml"
+    - "install_{{ ansible_os_family | lower }}_{{ ansible_distribution_major_version }}.yml"
+    - "install_{{ ansible_os_family | lower }}.yml"
 
 - name: include configuration tasks
   tags: [beats, beats_config, config]
-  ansible.builtin.import_tasks: configuration.yml
+  ansible.builtin.import_tasks: configure.yml
 
 - name: include service tasks
   tags: [beats, beats_service, service]
   ansible.builtin.import_tasks: service.yml
-

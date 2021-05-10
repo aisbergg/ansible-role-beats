@@ -6,6 +6,9 @@
 # Elastic RPM repository URL to be used for installation
 beats_centos_repo_url: "https://artifacts.elastic.co/packages/7.x/yum"
 
+# APT repository URL to be used for installation
+beats_debian_repo_url: "https://artifacts.elastic.co/packages/7.x/apt"
+
 
 
 # ------------------------------------------------------------------------------
