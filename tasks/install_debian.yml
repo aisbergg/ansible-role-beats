@@ -23,8 +23,8 @@
   loop: "{{ __available_beats }}"
   vars:
     install: "{{
-      (lookup('vars', item ~ '_service_enabled') | bool) or
-      (lookup('vars', item ~ '_service_state') != 'stopped')
-    }}"
+        (lookup('vars', item ~ '_service_enabled') | bool) or
+        (lookup('vars', item ~ '_service_state') != 'stopped')
+      }}"
   loop_control:
     label: "{{ install | ternary('install', 'uninstall') }} {{ item }}"
