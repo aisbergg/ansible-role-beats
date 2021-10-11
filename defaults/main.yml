@@ -18,30 +18,37 @@ beats_debian_repo_url: "https://artifacts.elastic.co/packages/7.x/apt"
 # install and manage Auditbeat service
 auditbeat_service_enabled: false
 auditbeat_service_state: stopped
+auditbeat_service_restart_on_change: true
 
 # install and manage Filebeat service
 filebeat_service_enabled: false
 filebeat_service_state: stopped
+filebeat_service_restart_on_change: true
 
 # install and manage Functionbeat service
 functionbeat_service_enabled: false
 functionbeat_service_state: stopped
+functionbeat_service_restart_on_change: true
 
 # install and manage Heartbeat service
 heartbeat_service_enabled: false
 heartbeat_service_state: stopped
+heartbeat_service_restart_on_change: true
 
 # install and manage Journalbeat service
 journalbeat_service_enabled: false
 journalbeat_service_state: stopped
+journalbeat_service_restart_on_change: true
 
 # install and manage Metricbeat service
 metricbeat_service_enabled: false
 metricbeat_service_state: stopped
+metricbeat_service_restart_on_change: true
 
 # install and manage Packetbeat service
 packetbeat_service_enabled: false
 packetbeat_service_state: stopped
+packetbeat_service_restart_on_change: true
 
 
 

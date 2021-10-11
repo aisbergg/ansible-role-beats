@@ -3,40 +3,54 @@
   ansible.builtin.service:
     name: auditbeat
     state: restarted
-  when: __auditbeat_enabled
+  when:
+    - auditbeat_service_restart_on_change | bool
+    - auditbeat_service_state != 'stopped'
 
 - name: restart filebeat
   ansible.builtin.service:
     name: filebeat
     state: restarted
-  when: __filebeat_enabled
+  when:
+    - filebeat_service_restart_on_change | bool
+    - filebeat_service_state != 'stopped'
 
 - name: restart functionbeat
   ansible.builtin.service:
     name: functionbeat
     state: restarted
-  when: __functionbeat_enabled
+  when:
+    - functionbeat_service_restart_on_change | bool
+    - functionbeat_service_state != 'stopped'
 
 - name: restart heartbeat
   ansible.builtin.service:
     name: heartbeat-elastic
     state: restarted
-  when: __heartbeat_enabled
+  when:
+    - elastic_service_restart_on_change | bool
+    - elastic_service_state != 'stopped'
 
 - name: restart journalbeat
   ansible.builtin.service:
     name: journalbeat
     state: restarted
-  when: __journalbeat_enabled
+  when:
+    - journalbeat_service_restart_on_change | bool
+    - journalbeat_service_state != 'stopped'
 
 - name: restart metricbeat
   ansible.builtin.service:
     name: metricbeat
     state: restarted
-  when: __metricbeat_enabled
+  when:
+    - metricbeat_service_restart_on_change | bool
+    - metricbeat_service_state != 'stopped'
 
 - name: restart packetbeat
   ansible.builtin.service:
     name: packetbeat
     state: restarted
-  when: __packetbeat_enabled
+  when:
+    - packetbeat_service_restart_on_change | bool
+    - packetbeat_service_state != 'stopped'
