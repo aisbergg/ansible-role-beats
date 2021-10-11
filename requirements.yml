@@ -1,0 +1,8 @@
+---
+roles: []
+collections:
+  - auditbeat.config
+  - heartbeat.config
+  - metricbeat.config
+  - packetbeat.interfaces
+  - packetbeat.procs
