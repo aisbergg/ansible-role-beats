@@ -9,7 +9,7 @@
 
 - name: copy ElasticSearch repo GPG key (RedHat)
   ansible.builtin.copy:
-    src: GPG-KEY-elasticsearch
+    src: etc/pki/rpm-gpg/GPG-KEY-elasticsearch
     dest: /etc/pki/rpm-gpg/GPG-KEY-elasticsearch
     owner: root
     group: root
