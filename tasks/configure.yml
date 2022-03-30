@@ -15,7 +15,7 @@
     dest: "/etc/{{ item }}/{{ item }}.yml"
     owner: root
     group: root
-    mode: 0644
+    mode: 0640
   vars:
     name: "{{ item }}"
     config: "{{ lookup('vars', item ~ '_config') }}"
