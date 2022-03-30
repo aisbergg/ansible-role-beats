@@ -2,12 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+- [1.3.1 (2022-03-30)](#131-2022-03-30)
 - [1.3.0 (2022-03-30)](#130-2022-03-30)
 - [1.2.0 (2022-01-28)](#120-2022-01-28)
 - [1.1.0 (2021-10-11)](#110-2021-10-11)
 - [1.0.0 (2021-05-10)](#100-2021-05-10)
 
 ---
+
+<a name="1.3.1"></a>
+## [1.3.1](https://github.com/aisbergg/ansible-role-beats/compare/v1.3.0...v1.3.1) (2022-03-30)
+
+### CI Configuration
+
+- bump Ansible Galaxy action
+
 
 <a name="1.3.0"></a>
 ## [1.3.0](https://github.com/aisbergg/ansible-role-beats/compare/v1.2.0...v1.3.0) (2022-03-30)
