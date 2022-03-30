@@ -1,6 +1,12 @@
 ---
-- name: include Beats defaults
-  ansible.builtin.include_vars: "{{ item }}.yml"
+- name: ensure config dir exists
+  ansible.builtin.file:
+    path: "/etc/{{ item }}"
+    state: directory
+    owner: root
+    group: root
+    mode: 0750
+  when: "lookup('vars', item ~ '_install_state') in ['present', 'latest']"
   loop: "{{ __available_beats }}"
 
 - name: configure Beats
@@ -12,7 +18,7 @@
     mode: 0644
   vars:
     name: "{{ item }}"
-    config: "{{ lookup('vars', '__' ~ item ~ '_config_defaults') | combine(lookup('vars', item ~ '_config')) }}"
+    config: "{{ lookup('vars', item ~ '_config') }}"
   notify: "restart {{ item }}"
-  when: "lookup('vars', '__' ~ item ~ '_enabled')"
+  when: "lookup('vars', item ~ '_install_state') in ['present', 'latest']"
   loop: "{{ __available_beats }}"

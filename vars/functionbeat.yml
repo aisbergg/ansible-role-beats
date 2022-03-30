@@ -1,3 +1,0 @@
----
-__functionbeat_config_defaults:
-  logging.to_files: false

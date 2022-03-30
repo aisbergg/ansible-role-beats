@@ -1,5 +1,0 @@
----
-__filebeat_config_defaults:
-  filebeat.modules: {}
-  filebeat.inputs: []
-  logging.to_files: false
