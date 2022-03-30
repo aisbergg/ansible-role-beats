@@ -2,14 +2,29 @@
 
 All notable changes to this project will be documented in this file.
 
-- [1.2.0 (2022-01-28)](#1.2.0-2022-01-28)
+- [1.3.0 (2022-03-30)](#130-2022-03-30)
+- [1.2.0 (2022-01-28)](#120-2022-01-28)
 - [1.1.0 (2021-10-11)](#110-2021-10-11)
 - [1.0.0 (2021-05-10)](#100-2021-05-10)
 
 ---
 
+<a name="1.3.0"></a>
+## [1.3.0](https://github.com/aisbergg/ansible-role-beats/compare/v1.2.0...v1.3.0) (2022-03-30)
+
+### Code Refactoring
+
+- clean up config
+
+### Features
+
+- change mode for configuration files to 640
+- add 'install state' for every beat app
+- use nicer YAML formatting
+
+
 <a name="1.2.0"></a>
-## [1.2.0](https://github.com/aisbergg/ansible-role-beats/compare/v1.1.0...1.2.0) (2022-01-28)
+## [1.2.0](https://github.com/aisbergg/ansible-role-beats/compare/v1.1.0...v1.2.0) (2022-01-28)
 
 ### Bug Fixes
 
