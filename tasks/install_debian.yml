@@ -18,13 +18,10 @@
 - name: install Beats (Debian)
   ansible.builtin.apt:
     name: "{{ __beats_package_name[item] }}"
-    state: "{{ install | ternary('present', 'absent') }}"
+    state: "{{ state }}"
     update_cache: true
   loop: "{{ __available_beats }}"
   vars:
-    install: "{{
-        (lookup('vars', item ~ '_service_enabled') | bool) or
-        (lookup('vars', item ~ '_service_state') != 'stopped')
-      }}"
+    state: "{{ lookup('vars', item ~ '_install_state') }}"
   loop_control:
-    label: "{{ install | ternary('install', 'uninstall') }} {{ item }}"
+    label: "{{ (state in ['present', 'latest']) | ternary('install', 'uninstall') }} {{ item }}"

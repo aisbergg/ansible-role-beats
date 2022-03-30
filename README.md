@@ -20,25 +20,32 @@ None.
 |----------|---------|----------|
 | `beats_centos_repo_url` | `https://artifacts.elastic.co/`<br>`packages/7.x/yum` | RPM repository URL to be used for installation |
 | `beats_debian_repo_url` | `https://artifacts.elastic.co/`<br>`packages/7.x/apt` | APT repository URL to be used for installation |
-| `auditbeat_service_enabled` | `false` | Install and enable Auditbeat on boot |
+| `auditbeat_install_state` | `absent` | Install state of Auditbeat (`present`, `latest`, `absent`) |
+| `auditbeat_service_enabled` | `false` | Enable Auditbeat Service on boot |
 | `auditbeat_service_state` | `stopped` | Auditbeat Service run state (`started`, `stopped`, `restarted`) |
 | `auditbeat_service_restart_on_change` | `true` | Restart Docker daemon service on configuration changes. |
-| `filebeat_service_enabled` | `false` | Install and enable Filebeat on boot |
+| `filebeat_install_state` | `absent` | Install state of Filebeat (`present`, `latest`, `absent`) |
+| `filebeat_service_enabled` | `false` | Enable Filebeat Service on boot |
 | `filebeat_service_state` | `stopped` | Filebeat Service run state (`started`, `stopped`, `restarted`) |
 | `filebeat_service_restart_on_change` | `true` | Restart Docker daemon service on configuration changes. |
-| `functionbeat_service_enabled` | `false` | Install and enable Functionbeat on boot |
+| `functionbeat_install_state` | `absent` | Install state of Functionbeat (`present`, `latest`, `absent`) |
+| `functionbeat_service_enabled` | `false` | Enable Functionbeat Service on boot |
 | `functionbeat_service_state` | `stopped` | Functionbeat Service run state (`started`, `stopped`, `restarted`) |
 | `functionbeat_service_restart_on_change` | `true` | Restart Docker daemon service on configuration changes. |
-| `heartbeat_service_enabled` | `false` | Install and enable Heartbeat on boot |
+| `heartbeat_install_state` | `absent` | Install state of Heartbeat (`present`, `latest`, `absent`) |
+| `heartbeat_service_enabled` | `false` | Enable Heartbeat Service on boot |
 | `heartbeat_service_state` | `stopped` | Heartbeat Service run state (`started`, `stopped`, `restarted`) |
 | `heartbeat_service_restart_on_change` | `true` | Restart Docker daemon service on configuration changes. |
-| `journalbeat_service_enabled` | `false` | Install and enable Journalbeat on boot |
+| `journalbeat_install_state` | `absent` | Install state of Journalbeat (`present`, `latest`, `absent`) |
+| `journalbeat_service_enabled` | `false` | Enable Journalbeat Service on boot |
 | `journalbeat_service_state` | `stopped` | Journalbeat Service run state (`started`, `stopped`, `restarted`) |
 | `journalbeat_service_restart_on_change` | `true` | Restart Docker daemon service on configuration changes. |
-| `metricbeat_service_enabled` | `false` | Install and enable Metricbeat on boot |
+| `metricbeat_install_state` | `absent` | Install state of Metricbeat (`present`, `latest`, `absent`) |
+| `metricbeat_service_enabled` | `false` | Enable Metricbeat Service on boot |
 | `metricbeat_service_state` | `stopped` | Metricbeat Service run state (`started`, `stopped`, `restarted`) |
 | `metricbeat_service_restart_on_change` | `true` | Restart Docker daemon service on configuration changes. |
-| `packetbeat_service_enabled` | `false` | Install and enable Packetbeat on boot |
+| `packetbeat_install_state` | `absent` | Install state of Packetbeat (`present`, `latest`, `absent`) |
+| `packetbeat_service_enabled` | `false` | Enable Packetbeat Service on boot |
 | `packetbeat_service_state` | `stopped` | Packetbeat Service run state (`started`, `stopped`, `restarted`) |
 | `packetbeat_service_restart_on_change` | `true` | Restart Docker daemon service on configuration changes. |
 | `auditbeat_config` | `{}` | Configuration of Auditbeat. ([Reference](https://github.com/elastic/beats/blob/master/auditbeat/auditbeat.reference.yml)) |
@@ -59,6 +66,7 @@ None.
 - hosts: all
   vars:
     # install and manage Auditbeat service
+    auditbeat_install_state: present
     auditbeat_service_enabled: true
     auditbeat_service_state: started
 
