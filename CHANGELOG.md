@@ -2,6 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
+- [1.3.2 (2022-03-31)](#132-2022-03-31)
 - [1.3.1 (2022-03-30)](#131-2022-03-30)
 - [1.3.0 (2022-03-30)](#130-2022-03-30)
 - [1.2.0 (2022-01-28)](#120-2022-01-28)
@@ -9,6 +10,14 @@ All notable changes to this project will be documented in this file.
 - [1.0.0 (2021-05-10)](#100-2021-05-10)
 
 ---
+
+<a name="1.3.2"></a>
+## [1.3.2](https://github.com/aisbergg/ansible-role-beats/compare/v1.3.1...v1.3.2) (2022-03-31)
+
+### CI Configuration
+
+- add branch explicitly to make Ansible import action happy
+
 
 <a name="1.3.1"></a>
 ## [1.3.1](https://github.com/aisbergg/ansible-role-beats/compare/v1.3.0...v1.3.1) (2022-03-30)
