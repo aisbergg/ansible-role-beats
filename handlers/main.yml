@@ -1,56 +1,9 @@
 ---
-- name: restart auditbeat
+- name: restart beats
   ansible.builtin.service:
-    name: auditbeat
+    name: "{{ item }}"
     state: restarted
   when:
-    - auditbeat_service_restart_on_change | bool
-    - auditbeat_service_state != 'stopped'
-
-- name: restart filebeat
-  ansible.builtin.service:
-    name: filebeat
-    state: restarted
-  when:
-    - filebeat_service_restart_on_change | bool
-    - filebeat_service_state != 'stopped'
-
-- name: restart functionbeat
-  ansible.builtin.service:
-    name: functionbeat
-    state: restarted
-  when:
-    - functionbeat_service_restart_on_change | bool
-    - functionbeat_service_state != 'stopped'
-
-- name: restart heartbeat
-  ansible.builtin.service:
-    name: heartbeat-elastic
-    state: restarted
-  when:
-    - elastic_service_restart_on_change | bool
-    - elastic_service_state != 'stopped'
-
-- name: restart journalbeat
-  ansible.builtin.service:
-    name: journalbeat
-    state: restarted
-  when:
-    - journalbeat_service_restart_on_change | bool
-    - journalbeat_service_state != 'stopped'
-
-- name: restart metricbeat
-  ansible.builtin.service:
-    name: metricbeat
-    state: restarted
-  when:
-    - metricbeat_service_restart_on_change | bool
-    - metricbeat_service_state != 'stopped'
-
-- name: restart packetbeat
-  ansible.builtin.service:
-    name: packetbeat
-    state: restarted
-  when:
-    - packetbeat_service_restart_on_change | bool
-    - packetbeat_service_state != 'stopped'
+    - "lookup('vars', item ~ '_service_restart_on_change') | bool"
+    - "lookup('vars', item ~ '_service_state') != 'stopped'"
+  loop: "{{ __beats_restart.results | selectattr('changed', 'equalto', true) | map(attribute='item') | list }}"

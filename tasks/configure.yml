@@ -19,6 +19,7 @@
   vars:
     name: "{{ item }}"
     config: "{{ lookup('vars', item ~ '_config') }}"
-  notify: "restart {{ item }}"
+  register: __beats_restart
+  notify: restart beats
   when: "lookup('vars', item ~ '_install_state') in ['present', 'latest']"
   loop: "{{ __available_beats }}"

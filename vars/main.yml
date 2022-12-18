@@ -4,7 +4,6 @@ __available_beats:
   - filebeat
   - functionbeat
   - heartbeat
-  - journalbeat
   - metricbeat
   - packetbeat
 
@@ -13,6 +12,5 @@ __beats_package_name:
   filebeat: filebeat
   functionbeat: functionbeat
   heartbeat: heartbeat-elastic
-  journalbeat: journalbeat
   metricbeat: metricbeat
   packetbeat: packetbeat

@@ -39,12 +39,6 @@ heartbeat_service_enabled: false
 heartbeat_service_state: stopped
 heartbeat_service_restart_on_change: true
 
-# install and manage Journalbeat service
-journalbeat_install_state: absent
-journalbeat_service_enabled: false
-journalbeat_service_state: stopped
-journalbeat_service_restart_on_change: true
-
 # install and manage Metricbeat service
 metricbeat_install_state: absent
 metricbeat_service_enabled: false
@@ -78,10 +72,6 @@ functionbeat_config: {}
 # Heartbeat configuration as found in the reference:
 # https://github.com/elastic/beats/blob/master/heartbeat/heartbeat.reference.yml
 heartbeat_config: {}
-
-# Journalbeat configuration as found in the reference:
-# https://github.com/elastic/beats/blob/master/journalbeat/journalbeat.reference.yml
-journalbeat_config: {}
 
 # Metricbeat configuration as found in the reference:
 # https://github.com/elastic/beats/blob/master/metricbeat/metricbeat.reference.yml
