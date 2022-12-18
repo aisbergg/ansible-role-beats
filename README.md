@@ -6,7 +6,6 @@ This Ansible role can install and configure different Beats data shippers from t
 - [filebeat](https://www.elastic.co/beats/filebeat)
 - [functionbeat](https://www.elastic.co/functionbeat/auditbeat)
 - [heartbeat](https://www.elastic.co/beats/heartbeat)
-- [journalbeat](https://www.elastic.co/beats/journalbeat)
 - [metricbeat](https://www.elastic.co/beats/metricbeat)
 - [packetbeat](https://www.elastic.co/beats/packetbeat)
 
@@ -18,7 +17,8 @@ None.
 
 | Variable | Default | Comments |
 |----------|---------|----------|
-| `beats_centos_repo_url` | `https://artifacts.elastic.co/`<br>`packages/7.x/yum` | RPM repository URL to be used for installation |
+| `beats_manage_repository` | `true` | Enable management of Elastic Beat package repository. |
+| `beats_rhel_repo_url` | `https://artifacts.elastic.co/`<br>`packages/7.x/yum` | RPM repository URL to be used for installation |
 | `beats_debian_repo_url` | `https://artifacts.elastic.co/`<br>`packages/7.x/apt` | APT repository URL to be used for installation |
 | `auditbeat_install_state` | `absent` | Install state of Auditbeat (`present`, `latest`, `absent`) |
 | `auditbeat_service_enabled` | `false` | Enable Auditbeat Service on boot |
@@ -36,10 +36,6 @@ None.
 | `heartbeat_service_enabled` | `false` | Enable Heartbeat Service on boot |
 | `heartbeat_service_state` | `stopped` | Heartbeat Service run state (`started`, `stopped`, `restarted`) |
 | `heartbeat_service_restart_on_change` | `true` | Restart Docker daemon service on configuration changes. |
-| `journalbeat_install_state` | `absent` | Install state of Journalbeat (`present`, `latest`, `absent`) |
-| `journalbeat_service_enabled` | `false` | Enable Journalbeat Service on boot |
-| `journalbeat_service_state` | `stopped` | Journalbeat Service run state (`started`, `stopped`, `restarted`) |
-| `journalbeat_service_restart_on_change` | `true` | Restart Docker daemon service on configuration changes. |
 | `metricbeat_install_state` | `absent` | Install state of Metricbeat (`present`, `latest`, `absent`) |
 | `metricbeat_service_enabled` | `false` | Enable Metricbeat Service on boot |
 | `metricbeat_service_state` | `stopped` | Metricbeat Service run state (`started`, `stopped`, `restarted`) |
@@ -52,7 +48,6 @@ None.
 | `filebeat_config` | `{}` | Configuration of Filebeat. ([Reference](https://github.com/elastic/beats/blob/master/filebeat/filebeat.reference.yml)) |
 | `functionbeat_config` | `{}` | Configuration of Functionbeat. ([Reference](https://github.com/elastic/beats/blob/master/functionbeat/functionbeat.reference.yml)) |
 | `heartbeat_config` | `{}` | Configuration of Heartbeat. ([Reference](https://github.com/elastic/beats/blob/master/heartbeat/heartbeat.reference.yml)) |
-| `journalbeat_config` | `{}` | Configuration of Journalbeat. ([Reference](https://github.com/elastic/beats/blob/master/journalbeat/journalbeat.reference.yml)) |
 | `metricbeat_config` | `{}` | Configuration of Metricbeat. ([Reference](https://github.com/elastic/beats/blob/master/metricbeat/metricbeat.reference.yml)) |
 | `packetbeat_config` | `{}` | Configuration of Packetbeat. ([Reference](https://github.com/elastic/beats/blob/master/packetbeat/packetbeat.reference.yml)) |
 
