@@ -1,0 +1,32 @@
+---
+- name: Verify
+  hosts: all
+  become: true
+  tasks:
+    - name: gather package facts
+      ansible.builtin.package_facts:
+
+    - name: check if ZFS is installed
+      ansible.builtin.assert:
+        that: "'auditbeat' in ansible_facts.packages"
+
+    - name: gather service facts
+      ansible.builtin.service_facts:
+
+    - name: check if services are enabled and running
+      ansible.builtin.assert:
+        that:
+          - "'auditbeat.service' in ansible_facts.services"
+          - "ansible_facts.services['auditbeat.service'].state == 'running'"
+          - "ansible_facts.services['auditbeat.service'].status == 'enabled'"
+
+    - name: get autditbeat log
+      ansible.builtin.stat:
+        path: "/var/log/auditbeat/auditbeat-{{ ansible_date_time.year }}{{ ansible_date_time.month }}{{ ansible_date_time.day }}.ndjson"
+      register: auditbeat_log
+
+    - name: assert filesystems
+      ansible.builtin.assert:
+        that:
+          - "auditbeat_log.stat.exists"
+          - "auditbeat_log.stat.size > 0"
