@@ -3,8 +3,11 @@
 # Installation
 # ------------------------------------------------------------------------------
 
-# Elastic RPM repository URL to be used for installation
-beats_centos_repo_url: "https://artifacts.elastic.co/packages/8.x/yum"
+# enables/disables management of Elastic Beat package repository
+beats_manage_repository: true
+
+# Elastic RPM repository URL to be used for installation on RHEL and CentOS
+beats_rhel_repo_url: "https://artifacts.elastic.co/packages/8.x/yum"
 
 # APT repository URL to be used for installation
 beats_debian_repo_url: "https://artifacts.elastic.co/packages/8.x/apt"

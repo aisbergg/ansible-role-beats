@@ -1,29 +1,31 @@
 ---
-- name: add ElasticSearch RPM repository (RedHat)
-  ansible.builtin.template:
-    src: etc/yum.repos.d/elastic.repo.j2
-    dest: /etc/yum.repos.d/elastic.repo
-    owner: root
-    group: root
-    mode: 0644
+- when: beats_manage_repository | bool
+  block:
+    - name: add ElasticSearch RPM repository (RedHat)
+      ansible.builtin.template:
+        src: etc/yum.repos.d/elastic.repo.j2
+        dest: /etc/yum.repos.d/elastic.repo
+        owner: root
+        group: root
+        mode: 0644
 
-- name: copy ElasticSearch repo GPG key (RedHat)
-  ansible.builtin.copy:
-    src: etc/pki/rpm-gpg/GPG-KEY-elasticsearch
-    dest: /etc/pki/rpm-gpg/GPG-KEY-elasticsearch
-    owner: root
-    group: root
-    mode: 0644
+    - name: copy ElasticSearch repo GPG key (RedHat)
+      ansible.builtin.copy:
+        src: etc/pki/rpm-gpg/GPG-KEY-elasticsearch
+        dest: /etc/pki/rpm-gpg/GPG-KEY-elasticsearch
+        owner: root
+        group: root
+        mode: 0644
 
-- name: import ElasticSearch repo GPG key (RedHat)
-  ansible.builtin.rpm_key:
-    key: /etc/pki/rpm-gpg/GPG-KEY-elasticsearch
-    fingerprint: 4609 5ACC 8548 582C 1A26 99A9 D27D 666C D88E 42B4
+    - name: import ElasticSearch repo GPG key (RedHat)
+      ansible.builtin.rpm_key:
+        key: /etc/pki/rpm-gpg/GPG-KEY-elasticsearch
+        fingerprint: 4609 5ACC 8548 582C 1A26 99A9 D27D 666C D88E 42B4
 
 - name: install Beats (RedHat)
   ansible.builtin.dnf:
     name: "{{ __beats_package_name[item] }}"
-    state: "{{ state }}"
+    state: "{{ state }}"  # noqa: args[module]
   loop: "{{ __available_beats }}"
   vars:
     state: "{{ lookup('vars', item ~ '_install_state') }}"

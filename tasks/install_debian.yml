@@ -1,24 +1,26 @@
 ---
-- name: copy ElasticSearch repo GPG key (Debian)
-  ansible.builtin.copy:
-    src: usr/share/keyrings/elastic-archive-keyring.gpg
-    dest: /usr/share/keyrings/elastic-archive-keyring.gpg
-    owner: root
-    group: root
-    mode: 0644
+- when: beats_manage_repository | bool
+  block:
+    - name: copy ElasticSearch repo GPG key (Debian)
+      ansible.builtin.copy:
+        src: usr/share/keyrings/elastic-archive-keyring.gpg
+        dest: /usr/share/keyrings/elastic-archive-keyring.gpg
+        owner: root
+        group: root
+        mode: 0644
 
-- name: add ElasticSearch APT repository (Debian)
-  ansible.builtin.template:
-    src: etc/apt/sources.list.d/elastic.list.j2
-    dest: /etc/apt/sources.list.d/elastic.list
-    owner: root
-    group: root
-    mode: 0644
+    - name: add ElasticSearch APT repository (Debian)
+      ansible.builtin.template:
+        src: etc/apt/sources.list.d/elastic.list.j2
+        dest: /etc/apt/sources.list.d/elastic.list
+        owner: root
+        group: root
+        mode: 0644
 
 - name: install Beats (Debian)
   ansible.builtin.apt:
     name: "{{ __beats_package_name[item] }}"
-    state: "{{ state }}"
+    state: "{{ state }}"  # noqa: args[module]
     update_cache: true
   loop: "{{ __available_beats }}"
   vars:
