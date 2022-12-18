@@ -2,6 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
+- [1.4.0 (2022-12-18)](#140-2022-12-18)
 - [1.3.2 (2022-03-31)](#132-2022-03-31)
 - [1.3.1 (2022-03-30)](#131-2022-03-30)
 - [1.3.0 (2022-03-30)](#130-2022-03-30)
@@ -10,6 +11,19 @@ All notable changes to this project will be documented in this file.
 - [1.0.0 (2021-05-10)](#100-2021-05-10)
 
 ---
+
+<a name="1.4.0"></a>
+## [1.4.0](https://github.com/aisbergg/ansible-role-beats/compare/v1.3.2...v1.4.0) (2022-12-18)
+
+### Documentation
+
+- **README.md:** update docs
+
+### Features
+
+- add option 'beats_manage_repository' to control the package repository and change 'beats_centos_repo_url' to 'beats_rhel_repo_url'
+- remove deprecated journalbeat
+
 
 <a name="1.3.2"></a>
 ## [1.3.2](https://github.com/aisbergg/ansible-role-beats/compare/v1.3.1...v1.3.2) (2022-03-31)
