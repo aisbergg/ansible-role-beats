@@ -13,7 +13,7 @@
     - name: gather service facts
       ansible.builtin.service_facts:
 
-    - name: check if services are enabled and running
+    - name: check if Auditbeat service is enabled and running
       ansible.builtin.assert:
         that:
           - "'auditbeat.service' in ansible_facts.services"
@@ -25,7 +25,7 @@
         path: "/var/log/auditbeat/auditbeat-{{ ansible_date_time.year }}{{ ansible_date_time.month }}{{ ansible_date_time.day }}.ndjson"
       register: auditbeat_log
 
-    - name: assert filesystems
+    - name: assert log exists and has some content
       ansible.builtin.assert:
         that:
           - "auditbeat_log.stat.exists"

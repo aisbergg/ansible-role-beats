@@ -9,12 +9,17 @@ driver:
 platforms:
   - name: molecule-beats-debian11-$TOX_ENVNAME
     box: debian/bullseye64
-    memory: 512
+    memory: 384
     cpus: 1
 
-  - name: molecule-beats-centosstream8-$TOX_ENVNAME
-    box: bento/centos-stream-8
-    memory: 512
+  - name: molecule-beats-rockylinux9-$TOX_ENVNAME
+    box: bento/rockylinux-9.1
+    memory: 384
+    cpus: 1
+
+  - name: molecule-beats-archlinux-$TOX_ENVNAME
+    box: archlinux/archlinux
+    memory: 384
     cpus: 1
 provisioner:
   name: ansible
