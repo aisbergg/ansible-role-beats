@@ -7,12 +7,12 @@ dependency:
 driver:
   name: vagrant
 platforms:
-  - name: molecule-zfs-debian11-$TOX_ENVNAME
+  - name: molecule-beats-debian11-$TOX_ENVNAME
     box: debian/bullseye64
     memory: 512
     cpus: 1
 
-  - name: molecule-zfs-centosstream8-$TOX_ENVNAME
+  - name: molecule-beats-centosstream8-$TOX_ENVNAME
     box: bento/centos-stream-8
     memory: 512
     cpus: 1

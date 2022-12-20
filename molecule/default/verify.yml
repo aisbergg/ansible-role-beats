@@ -6,7 +6,7 @@
     - name: gather package facts
       ansible.builtin.package_facts:
 
-    - name: check if ZFS is installed
+    - name: check if Auditbeat is installed
       ansible.builtin.assert:
         that: "'auditbeat' in ansible_facts.packages"
 
